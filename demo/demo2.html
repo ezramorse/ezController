@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ezController Demo 2</title>
+<style>
+section {
+	border:solid 1px #ccc;
+	border-radius:4px;
+	padding:10px;
+	width:800px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:10;
+	display:none;
+	background-color:rgba(255,255,255,.7);
+}
+</style>
+</head>
+<body>	
+	<header>
+	<h1>ezController Example 2 (custom transitions)</h1>
+	<p>
+		<a href="demo2.html#">Index Page</a>
+		<a href="demo2.html#page2">Page 2</a>
+		<a href="demo2.html#page3">Page 3</a>
+	</p>
+	<p><b>Live Example with custom transitions:</b> <a href="http://www.ezramorse.com/">http://www.ezramorse.com/</a></p>
+	</header>
+
+	<div style="position:relative;width:800px;;overflow:visible;height:800px;">
+
+		<section data-page="" style="left:0px;top:1400px;">
+			<h2>Index Page</h2>
+	                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>
+		</section>
+		<section data-page="page2" style="left:0px;top:-500px;">
+			<h2>Page 2</h2>
+	                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+		</section>
+
+		<section data-page="page3" style="left:2000px;top:0px;">
+			<h2>Page 3</h2>
+	                <p>Dolar morum olor sit samet ite, elit consect adipi toscing elit. Gaenean modo doloremque laudantium ligula eget dolor.</p>
+		</section>
+
+	</div>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript">window.jQuery || document.write('<script src="http://www.ezramorse.com/js/jquery-2.1.0.min.js"><\/script>')</script>
+	<script src="../src/ezController.js" type="text/javascript"></script>
+	<script>
+
+	$( document ).ready(function () {
+		// Initialize the controller
+		$('body').ezController({
+			pages: {
+				'' : {
+					init: function (d,c) {
+						console.log('Index Initialized');
+					},
+					hide: function (d,c,f) {
+						console.log('hide index');
+						c.element.find("[data-page='']").animate({
+							top: "+=1400",
+						}, 1000, function() { $(this).hide(); });
+						f();
+					},
+					transition: function (d,c) {
+						c.element.find("[data-page='']").show().animate({
+							top: "-=1400",
+						}, 1000);
+					}
+				},
+				'page2' : {
+					init: function (d,c) {
+						console.log('Page 2 Initialized');
+					},
+					hide: function (d,c,f) {
+						console.log('hide page 2');
+						c.element.find("[data-page='page2']").animate({
+							top: "-=500",
+						}, 1000, function() { $(this).hide(); });
+						f();
+					},
+					transition: function (d,c) {
+						c.element.find("[data-page='page2']").show().animate({
+							top: "+=500",
+						}, 1000);
+					}
+				},
+				'page3' : {
+					init: function (d,c) {
+						console.log('Page 3 Initialized');
+					},
+					hide: function (d,c,f) {
+						console.log('hide page 3');
+						c.element.find("[data-page='page3']").animate({
+							left: "+=2000",
+						}, 1000, function() { $(this).hide(); });
+						f();
+					},
+					transition: function (d,c) {
+						c.element.find("[data-page='page3']").show().animate({
+							left: "-=2000",
+						}, 1000);
+					}
+				},
+
+			}
+		});
+	});
+	</script>
+
+</body>
+</html>

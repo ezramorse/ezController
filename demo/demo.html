@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ezController Demo</title>
+<style>
+section {
+	display:none;
+}
+</style>
+</head>
+<body>
+	
+	<header>
+	<h1>ezController Example 1 (default)</h1>
+	<p>
+		<a href="demo.html#">Index Page</a>
+		<a href="demo.html#page2">Page 2</a>
+		<a href="demo.html#page3">Page 3</a>
+	</p>
+	</header>
+
+	<section data-page="">
+		<h2>Index Page</h2>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>
+	</section>
+	<section data-page="page2">
+		<h2>Page 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+	</section>
+
+	<section data-page="page3">
+		<h2>Page 3</h2>
+                <p>Dolar morum olor sit samet ite, elit consect adipi toscing elit. Gaenean modo doloremque laudantium ligula eget dolor.</p>
+	</section>
+
+	<footer>
+		<p><b>Live Example with custom transitions:</b> <a href="http://www.ezramorse.com/">http://www.ezramorse.com/</a></p>
+	</footer>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript">window.jQuery || document.write('<script src="http://www.ezramorse.com/js/jquery-2.1.0.min.js"><\/script>')</script>
+	<script src="../src/ezController.js" type="text/javascript"></script>
+	<script>
+
+	$( document ).ready(function () {
+		// Initialize the controller
+		$('body').ezController();
+	});
+	</script>
+
+</body>
+</html>
