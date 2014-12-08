@@ -5,7 +5,7 @@
 This is a minimalistic frontend 'controller' for one-page websites. It watches the hash and upon change, delivers the proper "route" while hiding the others. Beyond this 
 default behavior, it can be used to initialize a section's state prior to loading and create custom transition animations between sections.
 
-Please note, it will match the hashes to the corresponding elements with matching **data-page=""** values. All elements with the **data-page** attribute will be considered
+Please note: it will match the hashes to the corresponding elements with the same **data-page=""** values. All elements with the **data-page** attribute will be considered
 sections that can be shown/hidden.
 
 ## Demo & Examples
@@ -32,7 +32,7 @@ sections that can be shown/hidden.
 </section>
 ```
 
-### jQuery (requires GSAP too)
+### jQuery
 
 Use the plugin as follows:
 
@@ -47,14 +47,14 @@ $('body').ezTransition();
 | **openClass** | 'ezControllerOpen' | Class to assign to the open section |
 | **autoLoad** | true | Initiate the first transition based on the current hash |
 | **setInTransition** | function(h) | Sets a transition flag. Useful for avoiding re-running the same animation upon double-clicks with custom transitions |
-| **clearInTransition** function(h) | Clears a transition flag |
-| **defaultIntro** | function() | The default introduction transition each section will perform only once on first load |
+| **clearInTransition** | function(h) | Clears a transition flag |
+| **defaultIntro** | function() | The default introduction transition that each section will perform only once on first load |
 | **defaultTransition** | function() | The default transition. Evokes the defaultShow |
 | **defaultShow** | function() | Unhides the sections meant to be displayed  |
 | **defaultHide** | function() | Hides the last active section |
 | **pages** | object | Definition of all active pages and their custom transitions & initialization function |
 
-For **pages**, refer to this example code:
+For the **pages** argument, refer to this example code:
 
 ```js
 // Initialize the controller 
@@ -77,7 +77,7 @@ $('body').ezTransition({
 ## Methods
 | Name | Description |
 | :--------------- | :-------------------------------------------------------- | 
-| **hashChanged()**| Only needs to be run if 'autoLoad' argument is set to false to kick off the initial load |
+| **hashChanged()**| This only needs to be run if the 'autoLoad' argument is set to false to kick off the initial load |
 
 ## Installation
 
@@ -86,7 +86,7 @@ Include 'ezController.js' in your html file (preferably the footer)
 ## Notes
 
 * Requires jQuery.
-* Remember to hide all your initial elements so they do not show bef
+* Remember to hide all your initial elements so they do not show before the controller hides them.
 * Have fun. Be creative. If you make some nice animated one-page websites with this, let me know.
 
 ## License
