@@ -38,7 +38,7 @@ Use the plugin as follows:
 
 ```js
 // Initialize the controller 
-$('body').ezTransition();
+$('body').ezController();
 ```
 
 ## Arguments
